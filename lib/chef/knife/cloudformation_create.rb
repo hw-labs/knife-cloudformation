@@ -72,7 +72,11 @@ class Chef
         else
           file = load_template_file
         end
-        ui.info "#{ui.color('Cloud Formation:', :bold)} #{ui.color('create', :green)}"
+
+        unless(config[:print_only])
+          ui.info "#{ui.color('Cloud Formation:', :bold)} #{ui.color('create', :green)}"
+        end
+
         stack_info = "#{ui.color('Name:', :bold)} #{name}"
         if(Chef::Config[:knife][:cloudformation][:path])
           stack_info << " #{ui.color('Path:', :bold)} #{Chef::Config[:knife][:cloudformation][:file]}"
@@ -80,7 +84,10 @@ class Chef
             stack_info << " #{ui.color('(not pre-processed)', :yellow)}"
           end
         end
-        ui.info "  -> #{stack_info}"
+
+        unless(config[:print_only])
+          ui.info "  -> #{stack_info}"
+        end
 
         scrubbed = KnifeCloudformation::Utils::StackParameterScrubber.scrub!(file)
 
@@ -94,7 +101,6 @@ class Chef
         apply_stacks!(stack)
 
         if(config[:print_only])
-          ui.warn 'Print only requested'
           ui.info _format_json(translate_template(stack.load_template))
           exit 0
         end
