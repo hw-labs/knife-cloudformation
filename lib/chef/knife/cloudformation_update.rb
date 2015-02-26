@@ -70,11 +70,11 @@ class Chef
             if(file)
               populate_parameters!(file, stack.parameters)
               stack.template = translate_template(file)
-              stack.parameters = Chef::Config[:knife][:cloudformation][:parameters]
+              stack.parameters = Chef::Config[:knife][:cloudformation][:options][:parameters]
               stack.template = KnifeCloudformation::Utils::StackParameterScrubber.scrub!(stack.template)
             else
               populate_parameters!(stack.template, stack.parameters)
-              stack.parameters = Chef::Config[:knife][:cloudformation][:parameters]
+              stack.parameters = Chef::Config[:knife][:cloudformation][:options][:parameters]
             end
 
             begin
