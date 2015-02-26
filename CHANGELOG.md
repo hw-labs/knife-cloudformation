@@ -1,3 +1,6 @@
+## v0.2.24
+* Force parameter value set on defaults
+
 ## v0.2.22
 * Fix parameter setting on stack update subcommand
 
