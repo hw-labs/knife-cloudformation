@@ -132,9 +132,7 @@ module KnifeCloudformation
                   answer = ui.ask_question("#{k.split(/([A-Z]+[^A-Z]*)/).find_all{|s|!s.empty?}.join(' ')}: ", :default => default)
                   validation = KnifeCloudformation::Utils::StackParameterValidator.validate(answer, v)
                   if(validation == true)
-                    unless(answer == default)
-                      Chef::Config[:knife][:cloudformation][:options][:parameters][k] = answer
-                    end
+                    Chef::Config[:knife][:cloudformation][:options][:parameters][k] = answer
                     valid = true
                   else
                     validation.each do |validation_error|
