@@ -1,3 +1,6 @@
+## v0.2.22
+* Fix parameter setting on stack update subcommand
+
 ## v0.2.20
 * Add automatic support for outputs in nested stacks to `--apply-stack`
 
