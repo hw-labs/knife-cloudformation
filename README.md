@@ -1,3 +1,19 @@
+# DEPRECATION WARNING
+
+_NOTE: The `knife-cloudformation` gem is deprecated. Please install
+the `sfn` gem instead_:
+
+```
+$ gem uninstall knife-cloudformation
+$ gem install sfn
+```
+
+or make the appropriate adjustments to your Gemfile. The `sfn` gem
+now provides the `knife cloudformation` plugin.
+
+* https://github.com/sparkleformation/sfn
+
+
 # Knife CloudFormation
 
 This is a plugin for the `knife` command provided by

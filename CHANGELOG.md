@@ -1,3 +1,13 @@
+## v0.5.0
+
+_NOTE: This gem is deprecated and no longer maintained. The knife
+	plugin is now distributed via the sfn gem!_
+
+* Remove all real content
+* Update gemspec to install sfn automatically
+* Add notes to README and after install notification
+
+
 ## v0.2.24
 * Force parameter value set on defaults
 

@@ -10,9 +10,19 @@ Gem::Specification.new do |s|
   s.description = 'Knife tooling for Cloud Formation'
   s.license = 'Apache-2.0'
   s.require_path = 'lib'
-  s.add_dependency 'chef'
-  s.add_dependency 'miasma'
-  s.add_dependency 'net-ssh'
-  s.add_dependency 'sparkle_formation', '~> 0.2.0'
+  s.add_dependency 'sfn', '< 1.0'
   s.files = Dir['lib/**/*'] + %w(knife-cloudformation.gemspec README.md CHANGELOG.md LICENSE)
+  s.post_install_message = <<-EOF
+IMPORTANT NOTE: The knife-cloudformation gem is deprecated!
+
+Please uninstall the knife-cloudformation gem as it is no longer maintained. The cloudformation
+knife plugin is distributed via the sfn gem which has been automatically installed as a dependency.
+
+---
+gem uninstall knife-cloudformation
+---
+
+Thanks and happy stacking!
+EOF
+
 end
